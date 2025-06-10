@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date and Time</title>
+</head>
+<body>
+
+  <h2 id="datetime"></h2>
+  <button onclick="startClock()">Click me</button>
+  <button onclick="stopClock()">stop</button>
+
+  <script>
+    let intervalId;
+
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('datetime').innerText = now.toString();
+    }
+
+    function startClock() {
+      updateDateTime(); // Show immediately
+      intervalId = setInterval(updateDateTime, 1000);
+    }
+
+    function stopClock() {
+      clearInterval(intervalId);
+    }
+
+    // Optional: auto-start the clock on page load
+    startClock();
+  </script>
+
+</body>
+</html>
